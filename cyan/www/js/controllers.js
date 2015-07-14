@@ -1,6 +1,6 @@
-var app = angular.module('starter.controllers', ['ionic', 'ngCordova'])
+var app = angular.module('starter.controllers', ['ionic', 'ngCordova', 'react'])
 
-	.controller('AppCtrl',['$q', function ($scope, $q) {
+	.controller('AppCtrl',function ($scope, $q) {
 		$scope.person = {fname: 'Clark', lname: 'Kent'};
 		$scope.onRefresh = function () {
 			console.log("update ready");
@@ -31,7 +31,7 @@ var app = angular.module('starter.controllers', ['ionic', 'ngCordova'])
 				}
 			});
 		};
-	}]);
+	});
 
 var Hello = React.createClass({
 	propTypes: {
