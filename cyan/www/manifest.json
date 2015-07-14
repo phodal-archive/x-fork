@@ -21,7 +21,7 @@
     "app/my-app.js",
     "lib/vendor-lib.js",
     "css/app-css.css",
-    "templates/search.html"
+    "templates/tabs.html"
   ],
   "root": "./"
 }

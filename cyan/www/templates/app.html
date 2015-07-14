@@ -1,5 +1,11 @@
 <ion-view view-title="详细">
+    <ion-header-bar class="bar-stable">
+        <h1 class="title">{{person}}</h1>
+    </ion-header-bar>
     <ion-content>
-        <react-component name="HelloComponent" props="person" watch-depth="reference"/>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="onRefresh()">
+        </ion-refresher>
+        <react-component name="Hello" props="person" watch-depth="reference"/>
+        <hello fname="person.fname" lname="person.lname"/>
     </ion-content>
 </ion-view>

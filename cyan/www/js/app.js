@@ -15,11 +15,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'react', 'ngCordova']
 	.config(function ($stateProvider, $urlRouterProvider) {
 		$stateProvider
 
-			.state('app', {
-				url: "/app",
+			.state('tab', {
+				url: "/tab",
 				abstract: true,
-				templateUrl: "templates/app.html",
-				controller: 'AppCtrl'
+				templateUrl: "templates/tabs.html"
+			})
+			.state('tab.app', {
+				url: '/app',
+				views: {
+					'tab-app': {
+						templateUrl: 'templates/app.html',
+						controller: 'AppCtrl'
+					}
+				}
 			});
-		$urlRouterProvider.otherwise('/app');
+		$urlRouterProvider.otherwise('/tab/app');
 	});
