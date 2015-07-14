@@ -6,6 +6,8 @@
   },
   "dependencies": {
     "ngReact": "~0.1.7",
-    "ngCordova": "~0.1.17-alpha"
+    "ngCordova": "~0.1.17-alpha",
+    "cordova-app-loader": "~0.17.0",
+    "bluebird": "~2.9.33"
   }
 }
