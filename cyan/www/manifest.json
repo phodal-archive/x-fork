@@ -1,27 +1,12 @@
 {
   "files": {
-    "my-app.js": {
+    "my-app": {
       "filename": "app/my-app.js",
-      "version": "4fdf1cf7437154eb3efa1f71540e43770610df2b5cee4d0188f8ca845c8a0676"
-    },
-    "vendor-lib.js": {
-      "filename": "lib/vendor-lib.js",
-      "version": "f11c969d5a78dfa26ce4d91531d5eb95f1d5e934bfa0b7a641dce18ea610e13f"
-    },
-    "app-css.css": {
-      "filename": "css/app-css.css",
-      "version": "ce463a23f83c02c8a270eabc92ba05e9eb4a524aafaba203634c269c34e9c41c"
-    },
-    "search.html": {
-      "filename": "templates/search.html",
-      "version": "347c1f164f0ba02f18374d881c1a89ef6b674107f231e7986ab12c4af12d7034"
+      "version": "0.1"
     }
   },
   "load": [
-    "app/my-app.js",
-    "lib/vendor-lib.js",
-    "css/app-css.css",
-    "templates/tabs.html"
+    "my-app"
   ],
   "root": "./"
 }

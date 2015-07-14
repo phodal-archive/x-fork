@@ -3,7 +3,6 @@ var app = angular.module('starter.controllers', ['ionic', 'ngCordova', 'react'])
 	.controller('AppCtrl',function ($scope, $q) {
 		$scope.person = {fname: 'Clark', lname: 'Kent'};
 		$scope.onRefresh = function () {
-			console.log("update ready");
 			var fs = new CordovaPromiseFS({
 				Promise: $q
 			});
@@ -11,7 +10,7 @@ var app = angular.module('starter.controllers', ['ionic', 'ngCordova', 'react'])
 			var loader = new CordovaAppLoader({
 				fs: fs,
 				serverRoot: 'http://app.phodal.com/',
-				localRoot: 'app',
+				localRoot: 'Cyan',
 				cacheBuster: true, // make sure we're not downloading cached files.
 				checkTimeout: 10000 // timeout for the "check" function - when you loose internet connection
 			});
