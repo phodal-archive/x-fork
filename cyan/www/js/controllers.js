@@ -10,14 +10,13 @@ var app = angular.module('starter.controllers', ['ionic', 'ngCordova', 'react'])
 			// Initialize a CordovaAppLoader
 			var loader = new CordovaAppLoader({
 				fs: fs,
-				serverRoot: 'http://10.29.3.71:3000',
+				serverRoot: 'http://app.phodal.com/',
 				localRoot: 'Cyan',
 				cacheBuster: true, // make sure we're not downloading cached files.
 				checkTimeout: 10000 // timeout for the "check" function - when you loose internet connection
 			});
 			loader.check().then(function (updateAvailable) {
 				console.log(updateAvailable);
-
 				if (updateAvailable) {
 					var confirmPopup = $ionicPopup.confirm({
 						title: 'Update Available!',
