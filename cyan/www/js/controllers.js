@@ -1,6 +1,7 @@
 var app = angular.module('starter.controllers', ['ionic', 'ngCordova', 'react'])
 
-	.controller('AppCtrl',function ($scope, $q) {
+	.controller('AppCtrl',function ($scope, $q, $ionicPopup, $cordovaToast, $ionicLoading) {
+		window.BOOTSTRAP_OK = true;
 		$scope.person = {fname: 'Clark', lname: 'Kent'};
 		$scope.onRefresh = function () {
 			var fs = new CordovaPromiseFS({
@@ -9,24 +10,41 @@ var app = angular.module('starter.controllers', ['ionic', 'ngCordova', 'react'])
 			// Initialize a CordovaAppLoader
 			var loader = new CordovaAppLoader({
 				fs: fs,
-				serverRoot: 'http://app.phodal.com/',
+				serverRoot: 'http://10.29.3.71:3000',
 				localRoot: 'Cyan',
 				cacheBuster: true, // make sure we're not downloading cached files.
 				checkTimeout: 10000 // timeout for the "check" function - when you loose internet connection
 			});
 			loader.check().then(function (updateAvailable) {
 				console.log(updateAvailable);
+
 				if (updateAvailable) {
-					loader.download(onprogress)
-						.then(
-						function (manifest) {
-							console.log(manifest);
-							loader.update();
-						},
-						function (failedDownloadUrlArray) {
-							console.log(failedDownloadUrlArray);
+					var confirmPopup = $ionicPopup.confirm({
+						title: 'Update Available!',
+						template: "<div align='center'>There's a new mini-update available! Get it now?</div>"
+					});
+
+					confirmPopup.then(function(res) {
+						if (res) {
+							$ionicLoading.show ("Downloading the update!");
+							loader.download().then(
+								function(manifest) {
+									loader.update();
+									$ionicLoading.hide();
+									$cordovaToast.show("App updated!");
+								},
+								function(failedDownloadUrlArray) {
+									$ionicLoading.hide();
+									$cordovaToast.show ("Couldn't download the update, try again later!" + failedDownloadUrlArray);
+								}
+							);
+
 						}
-					)
+						else {
+							// user has said not to update. do nothing.
+							$cordovaToast.show ("OK! We'll try again later...");
+						}
+					});
 				}
 			});
 		};
